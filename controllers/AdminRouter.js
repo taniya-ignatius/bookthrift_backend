@@ -30,5 +30,16 @@ router.post("/updatebooks",async(req,res)=>{
     })
 })
 
+router.post("/deletebooks",async(req,res)=>{
+    console.log(req.body)
+    let {id} = req.body
+    console.log(id)
+    let data = await adminModel.deleteOne({_id:id})
+    res.json({
+        status:"success"
+    })
+})
+
+
 
 module.exports=router
